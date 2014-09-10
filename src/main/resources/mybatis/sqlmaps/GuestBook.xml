@@ -50,6 +50,16 @@
 		WHERE guestbook_id = #{guestBookId, jdbcType=INTEGER}
 	</delete>
 	
+	<update id="updateGuestBook">
+		UPDATE guestbook
+		<set >
+			<if test="guestName != null">guest_name = #{guestName},</if> 
+			<if test="title != null">title = #{title},</if> 
+			<if test="content != null">content = #{content},</if>
+			updated_at = current_timestamp
+		</set>
+	</update>
+	
 	<delete id="truncate">
 		TRUNCATE TABLE guestbook
 	</delete>

@@ -76,5 +76,14 @@ public class GuestBookDaoTest {
 		int deleteResult = guestBookDao.deleteGuestBookByGuestBookId(guestBook.getGuestBookId());
 		assertThat(deleteResult, is(equalTo(1)));
 	}
+	
+	@Test
+	public void testUpdateGuestBook(){
+		guestBook.setGuestName("손");
+		guestBook.setTitle("asdf");
+		assertThat(guestBookDao.updateGuestBook(guestBook), is(equalTo(1)));
+		GuestBook updatedGuestBook = guestBookDao.selectGuestBookByGuestBookId(guestBook.getGuestBookId());
+		assertThat(updatedGuestBook.getTitle(), is(equalTo("asdf")));
+	}
 
 }

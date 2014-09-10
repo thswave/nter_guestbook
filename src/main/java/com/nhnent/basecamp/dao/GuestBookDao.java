@@ -33,4 +33,8 @@ public class GuestBookDao {
 		return sqlSession.delete("GuestBook.deleteGuestBookByGuestBookId", guestBookId);
 	}
 
+	public int updateGuestBook(GuestBook guestBook) {
+		return sqlSession.update("GuestBook.updateGuestBook", guestBook);
+	}
+
 }
