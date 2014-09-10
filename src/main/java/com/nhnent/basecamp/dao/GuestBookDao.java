@@ -1,5 +1,7 @@
 package com.nhnent.basecamp.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,6 +23,10 @@ public class GuestBookDao {
 
 	public GuestBook selectGuestBookByGuestBookId(int guestBookId) {
 		return sqlSession.selectOne("GuestBook.selectGuestBookByGuestBookId", guestBookId);
+	}
+
+	public List<GuestBook> selectAllGuestBook() {
+		return sqlSession.selectList("GuestBook.selectAllGuestBook");
 	}
 
 }

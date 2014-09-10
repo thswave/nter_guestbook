@@ -27,17 +27,25 @@
 		current_timestamp, 
 		current_timestamp
 		)
-	
+		<selectKey keyProperty="guestBookId" order="AFTER" resultType="INTEGER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
 	</insert>
 	
 	<select id="selectGuestBookByGuestBookId" resultMap="resultMap">
 		SELECT
 			<include refid="baseColumn"/>
 		FROM guestbook
-		WHERE guestbook_id = #{guestBookId,jdbcType=INTEGER};
+		WHERE guestbook_id = #{guestBookId,jdbcType=INTEGER}
+	</select>
+	
+	<select id="selectAllGuestBook">
+		SELECT 
+			<include refid="baseColumn"/>
+		FROM guestbook
 	</select>
 	
 	<delete id="truncate">
-		TRUNCATE TABLE guestbook;
+		TRUNCATE TABLE guestbook
 	</delete>
 </mapper>

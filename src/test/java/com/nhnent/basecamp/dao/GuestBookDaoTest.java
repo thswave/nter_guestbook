@@ -1,14 +1,16 @@
 package com.nhnent.basecamp.dao;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -19,6 +21,7 @@ import com.nhnent.basecamp.vo.GuestBook;
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/appServlet/test-servlet-context.xml",
 	     "file:src/main/webapp/WEB-INF/spring/mybatis/test-mybatis-context.xml"})
 public class GuestBookDaoTest {
+	Logger logger = LoggerFactory.getLogger(GuestBookDaoTest.class);
 	@Autowired
 	private GuestBookDao guestBookDao;
 	private GuestBook guestBook;
@@ -52,6 +55,7 @@ public class GuestBookDaoTest {
 	@Test
 	public void testInsertGuestBook() {
 		int insertResult = guestBookDao.insertGuestBook(guestBook);
+		logger.info("GuestBookDaoTest.testInsertGuestBook guestBook.getGuestBookId() {}",guestBook.getGuestBookId());
 		assertThat(insertResult, is(equalTo(1)));
 	}
 	
@@ -59,6 +63,12 @@ public class GuestBookDaoTest {
 	public void testSelectGuestBook(){
 		GuestBook guestBook = guestBookDao.selectGuestBookByGuestBookId(1);
 		assertThat(guestBook, is(not(nullValue())));
+	}
+	
+	@Test
+	public void testSelctGuestBookList(){
+		List<GuestBook> guestBookList = guestBookDao.selectAllGuestBook();
+		assertThat(guestBookList.size(), is(greaterThanOrEqualTo(1)));
 	}
 
 }
