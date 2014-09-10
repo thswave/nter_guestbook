@@ -9,7 +9,7 @@ import org.junit.Test;
 public class GuestBookTest {
 
 	@Test
-	public void test() {
+	public void testGuestBook() {
 		GuestBook guestBook = new GuestBook();
 		Date date = new Date();
 		guestBook.setGuestBookId(1);
