@@ -3,7 +3,7 @@
 <mapper namespace="GuestBook">
 	<resultMap id="resultMap" type="GuestBook">
 		<id column="guestbook_id" property="guestBookId"/>
-		<result column="guest_name" property="guest_name"/>
+		<result column="guest_name" property="guestName"/>
 		<result column="title" property="title"/>
 		<result column="content" property="content"/>
 		<result column="created_at" property="createdAt"/>
@@ -29,4 +29,15 @@
 		)
 	
 	</insert>
+	
+	<select id="selectGuestBookByGuestBookId" resultMap="resultMap">
+		SELECT
+			<include refid="baseColumn"/>
+		FROM guestbook
+		WHERE guestbook_id = #{guestBookId,jdbcType=INTEGER};
+	</select>
+	
+	<delete id="truncate">
+		TRUNCATE TABLE guestbook;
+	</delete>
 </mapper>

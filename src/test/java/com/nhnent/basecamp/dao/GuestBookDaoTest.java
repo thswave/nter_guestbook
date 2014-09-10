@@ -25,6 +25,20 @@ public class GuestBookDaoTest {
 	
 	@Before
 	public void setUp(){
+		truncateTable();
+		insertTestGuestBook();
+	}
+
+	private void insertTestGuestBook() {
+		setTestGuestBookData();
+		guestBookDao.insertGuestBook(guestBook);
+	}
+
+	private void truncateTable() {
+		guestBookDao.truncate();
+	}
+
+	private void setTestGuestBookData() {
 		guestBook = new GuestBook();
 		Date date = new Date();
 		guestBook.setGuestBookId(1);
@@ -39,6 +53,12 @@ public class GuestBookDaoTest {
 	public void testInsertGuestBook() {
 		int insertResult = guestBookDao.insertGuestBook(guestBook);
 		assertThat(insertResult, is(equalTo(1)));
+	}
+	
+	@Test
+	public void testSelectGuestBook(){
+		GuestBook guestBook = guestBookDao.selectGuestBookByGuestBookId(1);
+		assertThat(guestBook, is(not(nullValue())));
 	}
 
 }

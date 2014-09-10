@@ -15,4 +15,12 @@ public class GuestBookDao {
 		return sqlSession.insert("GuestBook.insertGuestBook", guestBook);
 	}
 
+	public void truncate() {
+		sqlSession.delete("GuestBook.truncate");
+	}
+
+	public GuestBook selectGuestBookByGuestBookId(int guestBookId) {
+		return sqlSession.selectOne("GuestBook.selectGuestBookByGuestBookId", guestBookId);
+	}
+
 }
