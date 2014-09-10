@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GuestBook">
+	<resultMap id="resultMap" type="GuestBook">
+		<id column="guestbook_id" property="guestBookId"/>
+		<result column="guest_name" property="guest_name"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="created_at" property="createdAt"/>
+		<result column="updated_at" property="updatedAt"/>
+	</resultMap>
+	
+	<sql id="baseColumn">guestbook_id, guest_name, title, content, created_at, updated_at </sql>
+	
+	<insert id="insertGuestBook" parameterType="GuestBook">
+		INSERT INTO guestbook (guest_name, title, content)
+		VALUES('a','b','c')
+	
+	</insert>
+</mapper>
