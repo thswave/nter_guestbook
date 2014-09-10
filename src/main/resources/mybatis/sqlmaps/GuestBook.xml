@@ -45,6 +45,11 @@
 		FROM guestbook
 	</select>
 	
+	<delete id="deleteGuestBookByGuestBookId" parameterType="int">
+		DELETE FROM guestbook
+		WHERE guestbook_id = #{guestBookId, jdbcType=INTEGER}
+	</delete>
+	
 	<delete id="truncate">
 		TRUNCATE TABLE guestbook
 	</delete>

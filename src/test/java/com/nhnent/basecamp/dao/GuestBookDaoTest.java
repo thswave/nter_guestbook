@@ -70,5 +70,11 @@ public class GuestBookDaoTest {
 		List<GuestBook> guestBookList = guestBookDao.selectAllGuestBook();
 		assertThat(guestBookList.size(), is(greaterThanOrEqualTo(1)));
 	}
+	
+	@Test
+	public void testDeleteGuestBookByGuestBookId(){
+		int deleteResult = guestBookDao.deleteGuestBookByGuestBookId(guestBook.getGuestBookId());
+		assertThat(deleteResult, is(equalTo(1)));
+	}
 
 }

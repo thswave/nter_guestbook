@@ -29,4 +29,8 @@ public class GuestBookDao {
 		return sqlSession.selectList("GuestBook.selectAllGuestBook");
 	}
 
+	public int deleteGuestBookByGuestBookId(int guestBookId) {
+		return sqlSession.delete("GuestBook.deleteGuestBookByGuestBookId", guestBookId);
+	}
+
 }
