@@ -39,7 +39,7 @@
 		WHERE guestbook_id = #{guestBookId,jdbcType=INTEGER}
 	</select>
 	
-	<select id="selectAllGuestBook">
+	<select id="selectAllGuestBook" resultMap="resultMap">
 		SELECT 
 			<include refid="baseColumn"/>
 		FROM guestbook

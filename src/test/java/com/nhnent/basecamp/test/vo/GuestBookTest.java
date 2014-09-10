@@ -1,10 +1,12 @@
-package com.nhnent.basecamp.vo;
+package com.nhnent.basecamp.test.vo;
 
 import static org.junit.Assert.*;
 
 import java.util.Date;
 
 import org.junit.Test;
+
+import com.nhnent.basecamp.vo.GuestBook;
 
 public class GuestBookTest {
 

@@ -1,4 +1,4 @@
-package com.nhnent.basecamp.dao;
+package com.nhnent.basecamp.test.dao;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.nhnent.basecamp.dao.GuestBookDao;
 import com.nhnent.basecamp.vo.GuestBook;
 
 @RunWith(SpringJUnit4ClassRunner.class)
