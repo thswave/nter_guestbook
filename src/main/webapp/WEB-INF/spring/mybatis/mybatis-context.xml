@@ -9,7 +9,7 @@
 		
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 	  <property name="location">
-	    <value>classpath:/data-source.properties</value>
+	    <value>data-source.properties</value>
 	  </property>
 	</bean>
 		
@@ -21,7 +21,7 @@
    </bean>
    <!-- SqlSessionFactory설정 -->
    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-       <property name="configLocation"  value="classpath:mybatis-config.xml"/>
+       <property name="configLocation"  value="mybatis-config.xml"/>
        <property name="mapperLocations"  value="classpath:mybatis/sqlmaps/*.xml"/>
        <property name="dataSource" ref="dataSource"/>
    </bean>    
