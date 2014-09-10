@@ -13,8 +13,20 @@
 	<sql id="baseColumn">guestbook_id, guest_name, title, content, created_at, updated_at </sql>
 	
 	<insert id="insertGuestBook" parameterType="GuestBook">
-		INSERT INTO guestbook (guest_name, title, content)
-		VALUES('a','b','c')
+		INSERT INTO guestbook (
+		<if test="guestName != null">guest_name,</if> 
+		<if test="title != null">title,</if> 
+		<if test="content != null">content,</if>
+		created_at,
+		updated_at 
+		)
+		VALUES(
+		<if test="guestName != null">#{guestName},</if> 
+		<if test="title != null">#{title},</if> 
+		<if test="content != null">#{content},</if>
+		current_timestamp, 
+		current_timestamp
+		)
 	
 	</insert>
 </mapper>

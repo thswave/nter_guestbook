@@ -12,7 +12,7 @@ public class GuestBookDao {
 	private SqlSessionTemplate sqlSession;
 	
 	public int insertGuestBook(GuestBook guestBook) {
-		return sqlSession.insert("GuestBook.insertGuestBook");
+		return sqlSession.insert("GuestBook.insertGuestBook", guestBook);
 	}
 
 }

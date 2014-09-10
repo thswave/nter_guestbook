@@ -28,6 +28,7 @@ public class GuestBookDaoTest {
 		guestBook = new GuestBook();
 		Date date = new Date();
 		guestBook.setGuestBookId(1);
+		guestBook.setGuestName("손창원");
 		guestBook.setTitle("title");
 		guestBook.setContent("한글");
 		guestBook.setCreatedAt(date);
@@ -35,7 +36,7 @@ public class GuestBookDaoTest {
 	}
 	
 	@Test
-	public void test() {
+	public void testInsertGuestBook() {
 		int insertResult = guestBookDao.insertGuestBook(guestBook);
 		assertThat(insertResult, is(equalTo(1)));
 	}
